@@ -10,5 +10,5 @@ Gulp script to automate styling when using Sass (http://sass-lang.com). Compiles
 5) Run 'npm install' (installs all other dependencies)  
   
 ## How to run:  
-1) Run '''gulp -d "insert project directory" -p 8080''' 
-	Example: '''gulp -d "Example project-main" -p 8080'''
+1) Run ```gulp -d "insert project directory" -p 8080```
+	Example: ```gulp -d "Example project-main" -p 8080```
