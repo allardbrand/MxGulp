@@ -1,5 +1,5 @@
-# MxGulp - Gulp for Mendix
-Gulp script to automate styling when using Sass (http://sass-lang.com). Compiles the SASS theme into CSS and updates the adjustments in the browser.
+# MxGulp - Automate Mendix styling using Sass & Gulp
+Gulp script to automate styling when using Sass (http://sass-lang.com). Compiles the SASS theme into CSS and updates the adjustments in the browser using Browsersync (https://www.browsersync.io/).
 
 ## How to install:  
   
