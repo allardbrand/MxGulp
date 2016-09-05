@@ -20,6 +20,12 @@ if (yargs.p !== undefined) projectPort = yargs.p;
 // Define absolute path of the root folder
 var root = fs.realpathSync(__dirname + '/..') + '\\';
 
+// Error details
+function showErrorDetails(error) {
+  console.log(error.toString());
+  this.emit('end');
+};
+
 // Sass task with compass functionality
 gulp.task('sass', function () {
   return gulp.src('../' + projectDirectory + '/theme/styles/sass/**/*.scss')
@@ -27,10 +33,11 @@ gulp.task('sass', function () {
     .pipe(sourcemaps.init())
     // Initialize sass
     .pipe(
-    	sass.sync({
-            // Use compass
+    	sass({
+        	// Use compass
     		importer: compass
-    	}).on('error', sass.logError)
+    	})
+    	.on('error', showErrorDetails)
     )
     // Write sourcemaps (inline, in order to write into external file, try: sourcemaps.write('./maps'))
     .pipe(sourcemaps.write())
