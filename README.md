@@ -10,5 +10,9 @@ Gulp script to automate styling when using Sass (http://sass-lang.com). Compiles
 5) Run ```npm install``` (installs all other dependencies)  
   
 ## How to run:  
+1) Copy gulp-example-project.bat and rename
+2) Edit the copied file (e.g. Notepad++) change the (project directory) and (project port) in bat file
+3) Run the bat file
+or
 1) Run ```gulp -d "(project directory)" -p (project port)```  
       Example: ```gulp -d "Example project-main" -p 8080```
