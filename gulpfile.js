@@ -52,7 +52,9 @@ gulp.task('sass', function () {
 // Browser sync task
 gulp.task('browser-sync', function() {
     browserSync.init({
-        proxy: "http://localhost:" + projectPort + "/"
+        proxy: "localhost:" + projectPort,
+        online: false,
+        ws: true
     });
 
     // Watch scss files and run the 'sass' task
