@@ -4,14 +4,15 @@ Gulp script to automate styling when using Sass (http://sass-lang.com). Compiles
 ## How to install:  
   
 1) Install Node.js (https://nodejs.org/en/)  
-2) Unzip the MxGulp folder to your Mendix projects folder, for example C:\Mendix Projects\MxGulp  
-3) Open your command prompt and navigate to the MxGulp folder  
-4) Run ```npm install --global gulp-cli``` (installs Gulp globally, see https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md)  
-5) Run ```npm install``` (installs all other dependencies)  
+2) Download MxGulp (https://github.com/allardbrand/MxGulp/archive/master.zip)
+3) Unzip the MxGulp folder to your Mendix projects folder, for example C:\Mendix Projects\MxGulp  
+4) Open your command prompt and navigate to the MxGulp folder  
+5) Run ```npm install --global gulp-cli``` (installs Gulp globally, see https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md)  
+6) Run ```npm install``` (installs all other dependencies)  
   
 ## How to run:  
-1) Copy gulp-example-project.bat and rename  
-2) Edit the copied file (e.g. Notepad++) change the (project directory) and (project port) in bat file  
+1) Copy gulp-example-project.bat for each Mendix project you want to style using Gulp
+2) Edit the copied file (e.g. Notepad++) and change the (project directory) and (project port)
 3) Run the bat file  
   
 or
