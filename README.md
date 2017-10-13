@@ -3,7 +3,7 @@ Gulp script to automate styling when using Sass (http://sass-lang.com). Compiles
 
 ## How to install:  
   
-1) Install Node.js (https://nodejs.org/en/)  
+1) Make sure you have installed Node.js (https://nodejs.org/en/) and Python 2.7 (https://www.python.org/download/releases/2.7/)
 2) Download MxGulp (https://github.com/allardbrand/MxGulp/archive/master.zip)
 3) Unzip the MxGulp folder to your Mendix projects folder, for example C:\Mendix Projects\MxGulp  
 4) Open your command prompt and navigate to the MxGulp folder  
