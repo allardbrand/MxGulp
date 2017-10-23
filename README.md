@@ -20,3 +20,6 @@ or
   
 1) Run ```gulp -d "(project directory)" -p (project port)```  
       Example: ```gulp -d "Example project-main" -p 8080```
+
+## Troubleshooting:
+1) If you get any C++ related errors like 'Microsoft.Cpp.Default.props not found' or other errors referring to 'libsass.vcxproj', please (re-)install the [Visual C++ 2015 Build Tools](http://landinghub.visualstudio.com/visual-cpp-build-tools) or follow the instructions on https://github.com/nodejs/node-gyp#on-windows.
