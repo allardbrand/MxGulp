@@ -12,7 +12,7 @@ Gulp script to automate styling when using Sass (http://sass-lang.com). Compiles
   
 ## How to run:  
 1) Copy gulp-example-project.bat for each Mendix project you want to style using MxGulp.   
-(Make sure to keep the new .bat file inside your MxGulp directory)
+(Make sure to keep all .bat files inside your MxGulp directory, do not copy the .bat file to your project directory)
 2) Edit the copied file (e.g. Notepad++) and change the (project directory) and (project port)
 3) Run the bat file  
   
