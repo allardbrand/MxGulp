@@ -23,3 +23,4 @@ or
 
 ## Troubleshooting:
 1) If you get any C++ related errors during the installation like 'Microsoft.Cpp.Default.props not found' or other errors referring to 'libsass.vcxproj', please (re-)install the [Visual C++ 2015 Build Tools](http://landinghub.visualstudio.com/visual-cpp-build-tools) and/or follow the instructions on https://github.com/nodejs/node-gyp#on-windows.
+2) If you get any errors with the message 'VCBuild.exe not found', then open a command-prompt with Administrator-rights and install the build tool with this command: ```npm install --global --production windows-build-tools```. Be patient because this can take up to 15 minutes.
