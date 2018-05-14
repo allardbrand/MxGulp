@@ -9,7 +9,7 @@
   "author": "Allard Brand - FlowFabric",
   "license": "Apache-2.0",
   "devDependencies": {
-    "browser-sync": "^2.12.5",
+    "browser-sync": "2.12.5",
     "colors": "^1.1.2",
     "compass-importer": "^0.2.3",
     "gulp": "^3.9.1",
