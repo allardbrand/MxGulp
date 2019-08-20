@@ -3,69 +3,58 @@ var gulp = require('gulp'),
     colors = require('colors'),
     fs = require('fs'),
     path = require('path'),
-    compass = require('compass-importer'),
     yargs = require('yargs').argv,
     sourcemaps = require('gulp-sourcemaps'),
     browserSync = require('browser-sync').create();
 
-// Standard configuration, can be overridden by use of parameters
-var projectDirectory = 'No project defined';
-var projectPort = 8080;
-
-// Read project  directory and port from parameter(s) 
+// Read project directory and port from parameter(s) 
 // Example: gulp -d "Example project-main" -p 8080
-if (yargs.d !== undefined) projectDirectory = yargs.d;
-if (yargs.p !== undefined) projectPort = yargs.p;
+var projectDirectory = yargs.d !== undefined ? yargs.d : 'No project defined';
+var projectPort = yargs.p !== undefined ? yargs.p : 8080;
 
 // Define absolute path of the root folder
 var root = fs.realpathSync(__dirname + '/..') + '\\';
 
-// Error details
-function showErrorDetails(error) {
-  console.log(error.toString());
-  this.emit('end');
-};
-
 // Sass task with compass functionality
 gulp.task('sass', function () {
+  browserSync.notify("Updating styles");
+
   return gulp.src('../' + projectDirectory + '/theme/styles/sass/**/*.scss')
     // Inititalize sourcemaps
     .pipe(sourcemaps.init())
     // Initialize sass
-    .pipe(
-    	sass({
-        	// Use compass
-    		importer: compass
-    	})
-    	.on('error', showErrorDetails)
-    )
+    .pipe(sass().on('error', sass.logError))
     // Write sourcemaps (inline, in order to write into external file, try: sourcemaps.write('./maps'))
     .pipe(sourcemaps.write())
-    // Output css to MX deployment directory where browser-sync will trigger the refresh
+    // Output updated CSS to Mx deployment directory
     .pipe(gulp.dest(root + projectDirectory + '/deployment/web/styles/css')) 
-    // Output css to MX development directory and will be included on commit to SVN teamserver
+    // Output updated CSS to theme directory
     .pipe(gulp.dest(root + projectDirectory + '/theme/styles/css'))
-    // Stream css changes with browser-sync
+    // Stream the changes with browsersync
     .pipe(browserSync.stream());
 });
 
-// Browser sync task
-gulp.task('browser-sync', function() {
+// Browsersync task
+gulp.task('browsersync', function() {
     browserSync.init({
-        proxy: "localhost:" + projectPort,
+        proxy: {
+          target: "localhost:" + projectPort,
+          ws: true
+        },
         online: false,
-        ws: true
+        ghostMode: false
     });
 
     // Watch scss files and run the 'sass' task
-   gulp.watch('../' + projectDirectory + '/theme/styles/sass/**/*.scss', ['sass']);
+   gulp.watch('../' + projectDirectory + '/theme/styles/sass/**/*.scss', gulp.series('sass'));
 });
 
-// Show mendix project
-gulp.task('showmendixproject', function() {
-    console.log("[" + "MxGulp".red + "] Project directory: " + projectDirectory);
-    console.log("[" + "MxGulp".red + "] Project port: " + projectPort);
+// Show Mendix project information
+gulp.task('mxproject', function(callback) {
+    console.log("[" + "MxGulp".magenta + "] Project directory: " + projectDirectory);
+    console.log("[" + "MxGulp".magenta + "] Project port: " + projectPort);
+    callback();
 });
 
 // Default task 
-gulp.task('default', ['showmendixproject', 'browser-sync']);
+gulp.task('default', gulp.series('mxproject', 'browsersync'));
